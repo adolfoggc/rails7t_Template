@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :dnd_sheets
   root 'site#index'
   mount Sidekiq::Web => '/sidekiq'
 

@@ -1,0 +1,2 @@
+class DndSheet < ApplicationRecord
+end
