@@ -1,4 +1,20 @@
-<div>
-  <h1 class="font-bold text-4xl">Sheet#new</h1>
-  <p>Find me in app/views/sheet/new.html.erb</p>
+<div data-controller="system-selector"
+     data-system-selector-url-value="<%= sheet_system_preview_path %>"
+     data-system-selector-frame-id-value="dnd_frame">
+  <h1 class="font-bold text-4xl">Escolha o sistema</h1>
+  <p>
+    <%= radio_button_tag(:system, 'dnd', false, data: { action: 'change->system-selector#changed' })%>
+    <%= label_tag(:system_dnd, "Dungeons & Dragons 5e") %>
+  </p>
+  <p>
+    <%= radio_button_tag :system, 'ndnd', false, data: { action: 'change->system-selector#changed' } %>
+    <%= label_tag :system_ndnd, "Not DnD" %>
+  </p>
+
+  <br><br><br>
+
+  <%= turbo_frame_tag 'dnd_frame' do %>
+    <%= render partial: 'system_preview', locals: { system: nil } %>
+  <% end %>
+
 </div>

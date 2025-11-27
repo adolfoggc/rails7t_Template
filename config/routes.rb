@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'sheet/new'
   get 'sheet/show'
   resources :dnd_sheets
+  get 'sheet/system_preview', to: 'sheet#system_preview', as: 'sheet_system_preview'
   root 'site#index'
   mount Sidekiq::Web => '/sidekiq'
 
