@@ -7,7 +7,7 @@ class SheetController < ApplicationController
 
   # Renders the partial used inside the turbo frame based on params[:system]
   def system_preview
-    @system = params[:system]
-    render partial: 'system_preview', locals: { system: @system }
+    @rpg_system = params[:rpg_system]
+    render partial: 'rpg_system_preview', locals: { rpg_system: @rpg_system }
   end
 end

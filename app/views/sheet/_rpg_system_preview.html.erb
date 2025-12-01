@@ -1,0 +1,13 @@
+<%# Partial rendered into the `dnd_frame` turbo frame. Expects local `system`. %>
+<div class="system-preview">
+  <% if rpg_system == 'dnd' %>
+    <p>Você selecionou <strong>Dungeons & Dragons 5e</strong>.</p>
+    <%= turbo_frame_tag 'd&d_frame' do %>
+      <%= link_to 'Criar ficha DnD', new_dnd_sheet_path, class: 'btn btn--primary', data: { turbo_frame: 'd&d_frame' } %>
+    <% end %>
+  <% elsif rpg_system.present? %>
+    <p>Você selecionou <strong><%= rpg_system %></strong>. Ainda não existem opções para esse sistema.</p>
+  <% else %>
+    <p>Escolha um sistema acima para ver as opções.</p>
+  <% end %>
+</div>

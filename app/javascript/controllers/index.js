@@ -10,5 +10,5 @@ application.register("accordion", AccordionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import SystemSelectorController from "./system_selector_controller"
-application.register("system-selector", SystemSelectorController)
+import SystemSelectorController from "./rpg_system_selector_controller"
+application.register("rpg-system-selector", SystemSelectorController)

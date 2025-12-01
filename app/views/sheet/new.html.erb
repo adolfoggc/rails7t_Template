@@ -1,20 +1,29 @@
-<div data-controller="system-selector"
-     data-system-selector-url-value="<%= sheet_system_preview_path %>"
-     data-system-selector-frame-id-value="dnd_frame">
+<div data-controller="rpg-system-selector"
+  <%# sheet_system_preview_path aims the new controller action that renders the partial%>
+  <%# the static values on system_selector_controller are listed here %>
+  <%# ***-url-value and ***-frame-id-value %>
+  
+  <%# informs the url path that will be rendered on the tagged frame %>
+  data-rpg-system-selector-url-value="<%= sheet_system_preview_path %>"
+  <%# informs the tag that will render the frame %>
+  data-rpg-system-selector-frame-id-value="sheet_frame">
+
   <h1 class="font-bold text-4xl">Escolha o sistema</h1>
   <p>
-    <%= radio_button_tag(:system, 'dnd', false, data: { action: 'change->system-selector#changed' })%>
-    <%= label_tag(:system_dnd, "Dungeons & Dragons 5e") %>
+    <%# On 'change' action, call js controller called 'system-selector' with action 'changed' %>
+    <%# the controller name was defined on app/javascript/controllers/index.js %>
+    <%= radio_button_tag(:rpg_system, 'dnd', false, data: { action: 'change->rpg-system-selector#changed' })%>
+    <%= label_tag(:rpg_system_dnd, "Dungeons & Dragons 5e") %>
   </p>
   <p>
-    <%= radio_button_tag :system, 'ndnd', false, data: { action: 'change->system-selector#changed' } %>
-    <%= label_tag :system_ndnd, "Not DnD" %>
+    <%= radio_button_tag :rpg_system, 'ndnd', false, data: { action: 'change->rpg-system-selector#changed' } %>
+    <%= label_tag :rpg_system_ndnd, "Not DnD" %>
   </p>
 
   <br><br><br>
 
-  <%= turbo_frame_tag 'dnd_frame' do %>
-    <%= render partial: 'system_preview', locals: { system: nil } %>
+  <%= turbo_frame_tag 'sheet_frame' do %>
+    <%= render partial: 'rpg_system_preview', locals: { rpg_system: nil } %>
   <% end %>
 
 </div>
