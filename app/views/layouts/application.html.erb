@@ -19,6 +19,16 @@
         
         <!-- dashboard -->
         <div class="col-span-5 bg-red-100">
+          <% if alert.present? %>
+            <div class="fixed top-4 right-4 z-50 py-2 px-3 text-red-500 bg-red-50 font-medium rounded-md shadow-lg animate-fade-in" id="notice">
+              <%= alert %>
+            </div>
+          <% elsif notice.present? %>
+            <div class="fixed top-4 right-4 z-50 py-2 px-3 bg-green-50 text-green-500 font-medium rounded-md shadow-lg animate-fade-in" id="notice">
+              <%= notice %>
+            </div>
+          <% end %>
+
           <div class="bg-neutral-50 dark:bg-neutral-900/50 rounded-xl px-6 py-5 m-8 border border-black/10 dark:border-white/10 min-h-screen">
             <%= yield %>
           </div>
