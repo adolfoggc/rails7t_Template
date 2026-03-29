@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('turbo:load', function() {
   const notice = document.getElementById('notice');
   if (notice) {
     setTimeout(function() {
